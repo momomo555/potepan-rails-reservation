@@ -1,0 +1,27 @@
+<h2>検索結果:<%= @hotels.count %>件</h2>
+<table class='hotels-table'>
+  <thead>
+    <tr>
+      <th>ホテル画像</th>
+      <th>ホテル名</th>
+      <th>住所</th>
+      <th>料金</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @hotels.each do |hotel| %>
+      <tr>
+        <td>
+          <% if hotel.image.attached? %>
+            <%= link_to image_tag(hotel.image, class: 'hotel-picture'), hotel %>
+          <% else %>
+            <%= link_to image_tag('default_room_icon.jpg', class: 'hotel-picture'), hotel %>
+          <% end %>
+        </td>
+        <td><%= hotel.name %></td>
+        <td><%= hotel.address %></td>
+        <td><%= "¥#{hotel.price}" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

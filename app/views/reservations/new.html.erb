@@ -1,0 +1,40 @@
+<% if @reservation.errors.any? %>
+  <% @reservation.errors.full_messages.each do |message| %>
+    <ul>
+      <li><%= message %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<div class='confirm-reservation'>
+  <h4>予約内容確認</h4>
+  <%= form_with model: @reservation do |f| %>
+    <h5><%= "¥ #{@reservation.hotel.price} / 日" %></h5>
+
+      <%= f.label :start, "開始日" %>
+      <%= f.date_field :start, readonly: true, class:'read-only' %>
+
+      <%= f.label :end, "終了日" %>
+      <%= f.date_field :end, readonly: true, class: 'read-only' %>
+
+    <% period = @reservation.end - @reservation.start < 0 ? 0 : @reservation.end - @reservation.start %>
+    <div>
+      <p><%= "宿泊日数 : #{period.to_i}日" %></p>
+    </div>
+
+    <div>
+      <p><%= "人数 : #{@reservation.number_of_people}人" %></p>
+    </div>
+
+    <%= f.label :price, "合計金額" %>
+    <%= f.text_field :price, readonly: true, class:'read-only', value: period.to_i * @reservation.number_of_people * @reservation.hotel.price %>
+
+    <%= f.hidden_field :hotel_id, value: @reservation.hotel.id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :number_of_people, value: @reservation.number_of_people %>
+
+    <%= f.submit "予約を確定", class: 'commit-button' %>
+  <% end %>
+
+  <%= link_to "ホテル詳細に戻る", @reservation.hotel, class: 'back-button' %>
+</div>

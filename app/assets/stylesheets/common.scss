@@ -1,0 +1,396 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+header {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 30px;
+  align-items: center;
+  padding: 10px 20px;
+
+  .left-menu {
+    display: flex;
+    gap: 20px;
+    font-family: 'Sevillana', cursive;
+    align-items: center;
+  }
+
+  .logo{
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+  }
+
+  .search-button {
+    display: none;
+  }
+
+  .right-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .user-name {
+      color: white;
+    }
+
+    img {
+      width: 60px;
+      border-radius: 30px;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .log-in {
+      background-color: rgb(0, 140, 255);
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+    .sign-up {
+      background-color: rgb(135, 135, 137);
+      padding: 5px;
+      border-radius: 5px;
+    }
+
+  }
+  
+  .user-menu {
+    background-color: gray;
+    position: absolute;
+    right: 0;
+    padding: 10px;
+  }
+
+  summary {
+    list-style: none;
+  }
+  
+  li {
+    list-style: none;
+  }
+
+}
+
+.top-comment {
+  background-color: white;
+  position: absolute;
+  top: 150px;
+  left: 50px;
+  border-radius: 10px;
+  padding: 0 20px;
+}
+
+.notice {
+  background-color: rgb(204, 255, 129);
+  margin: 0;
+}
+
+.top-picture {
+  vertical-align: top;
+  width: 100%;
+}
+
+.hotel-new-form {
+  th{
+    text-align: left;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .register-button {
+    background-color: dodgerblue;
+    padding: 10px 30px;
+    margin: 10px 0;
+    display: block;
+    color: white;
+    text-decoration: none;
+    width: 130px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+small {
+  background-color: rgb(255, 135, 135);
+  color: white;
+  padding: 2px 2px;
+  border-radius: 4px;
+}
+
+.input-area {
+  width: 100%;
+}
+
+.hotel-picture {
+  width: 200px;
+  vertical-align: top;
+}
+
+.hotels-table {
+  border-collapse: collapse;
+  margin-bottom: 10px;
+
+  th, td {
+    border-width: 1px 0;
+    border-color: black;
+    border-style: solid;
+    padding: 8px;
+    word-break: break-all;
+  }
+
+}
+
+.hotel-detail {
+
+  display: flex;
+  gap: 20px ;
+
+  .hotel-info {
+
+    max-width: 600px;
+    word-break: break-all;
+  
+    .hotel-picture {
+      width: 600px;
+    }
+  
+    .owner-icon {
+      width: 60px;
+      border-radius: 30px;
+      }
+  
+    .row {
+      display: flex;
+      align-items: center;
+    }
+  
+    .comment {
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      padding: 5px 0;
+    }
+  
+  }
+  
+  .reservation-form {
+
+    text-align: left;
+  
+    table {
+      width: 300px;
+    }
+  
+    .input-area {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .reserve-button {
+      background-color: dodgerblue;
+      padding: 10px 30px;
+      display: block;
+      color: white;
+      text-decoration: none;
+      width: fit-content;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+    }
+  
+  }
+
+}
+
+.confirm-reservation {
+
+  input {
+    display: block;
+  }
+
+  .read-only {
+    background-color: lightgrey;
+  }
+
+  .commit-button {
+    background-color: dodgerblue;
+    padding: 5px 30px;
+    display: block;
+    color: white;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0 ;
+  }
+
+  .back-button {
+    background-color:dimgrey;
+    padding: 5px 0px;
+    display: block;
+    color: white;
+    width: 150px;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0 ;
+    font-size: small;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+}
+
+.reservation-detail {
+  th,td {
+    text-align: left;
+    padding: 10px;
+  }
+}
+
+h5 {
+  font-size: 18px;
+}
+
+.user-edit-form {
+
+  .field {
+
+    input {
+      width: 200px;
+    }
+
+  }
+
+  .update-button {
+    background-color: dodgerblue;
+    padding: 5px 30px;
+    margin: 10px 0;
+    display: block;
+    color: white;
+    width: 208px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  a {
+    background-color:dimgrey;
+    padding: 5px 0px;
+    display: block;
+    color: white;
+    width: 208px;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0 ;
+    font-size: small;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+}
+
+.account-preview {
+  display: flex;
+  gap: 20px;
+
+  .navigation {
+    a {
+      display: block;
+    }
+  }
+
+  .account-info {
+
+    h5 {
+      margin: 0;
+    }
+
+    a {
+      background-color: dodgerblue;
+      padding: 10px 30px;
+      display: block;
+      color: white;
+      text-decoration: none;
+      width: fit-content;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+
+    th,td {
+      text-align: left;
+      padding: 10px;
+    }
+
+  }
+
+}
+
+.profile-preview {
+  display: flex;
+  gap: 20px;
+
+  .navigation {
+    a {
+      display: block;
+    }
+  }
+
+  .edit-profile {
+
+    h5 {
+      margin: 0;
+    } 
+
+    img {
+      width: 60px;
+      border-radius: 30px;
+      margin: 10px auto;
+      display: block;
+    }
+  
+    th,td {
+      text-align: left;
+    }
+  
+    .input-area {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  
+    .submit-button {
+      background-color: dodgerblue;
+      padding: 10px 30px;
+      display: block;
+      color: white;
+      width: fit-content;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+  }
+
+}
+
+footer {
+  background-color: black;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

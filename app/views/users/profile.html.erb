@@ -1,0 +1,60 @@
+<% if @user.errors.any? %>
+  <% @user.errors.full_messages.each do |message| %>
+    <ul>
+      <li><%= message %></li>
+    </ul>
+  <% end %>
+<% end %>
+<div class='profile-preview'>
+  <div class='navigation' >
+    <%= link_to "アカウント", users_account_path %>
+    <%= link_to "プロフィール", users_profile_path %>
+  </div>
+  <div class='edit-profile'>
+    <h5>プロフィール</h5>
+    <% if current_user.image.attached? %>
+      <%= image_tag current_user.image %>
+    <% else %>
+      <%= image_tag 'default_user_icon.jpg' %>
+    <% end %>
+
+    <%= form_with model: @user, url: users_update_profile_path do |f| %>
+      <table>
+        <tr>
+          <th>
+            <%= f.label :image, "アイコン画像" %>
+            <small>必須</small>
+          </th>
+          <td>
+            <%= f.file_field :image, required: !current_user.image.attached?, class: 'input-area' %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            <%= f.label :name, "名前" %>
+            <small>必須</small>
+          </th>
+          <td>
+            <%= f.text_field :name, required: true, class: 'input-area' %>
+          </td>
+        </tr>
+
+        <tr>
+          <th>
+            <%= f.label :introduction, "自己紹介" %>
+            <small>必須</small>
+          </th>
+          <td>
+            <%= f.text_area :introduction, required: true, class: 'input-area' %>
+          </td>
+        </tr>
+      </table>
+
+      <div class="actions">
+        <%= f.submit "更新", class: 'submit-button' %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

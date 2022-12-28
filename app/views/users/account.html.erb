@@ -1,0 +1,26 @@
+<div class='account-preview'>
+  <div class='navigation' >
+    <%= link_to "アカウント", users_account_path %>
+    <%= link_to "プロフィール", users_profile_path %>
+  </div>
+  <div class='account-info'>
+    <h5>アカウント</h5>
+    <table>
+      <tr>
+        <th>
+          メールアドレス
+        </th>
+        <td>
+          <%= current_user.email %>
+        </td>
+      </tr>
+        <th>
+          パスワード
+        </th>
+        <td>
+          *********
+        </td>
+    </table>
+    <%= link_to "編集", edit_user_registration_path %>
+  </div>
+</div>
