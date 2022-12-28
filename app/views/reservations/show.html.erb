@@ -1,0 +1,16 @@
+<table class='reservation-detail'>
+  <tr>
+    <th>予約した部屋</th> 
+    <td><%= link_to @reservation.hotel.name, @reservation.hotel %></td>
+  </tr>
+  <tr>
+    <th>開始日</th>
+    <td><%= @reservation.start %></td>
+  <tr>
+    <th>終了日</th>
+    <td><%= @reservation.end %></td>
+  <tr>
+    <th>価格</th>
+    <td><%= "#{@reservation.price}円" %></td>
+  </tr>  
+</table>

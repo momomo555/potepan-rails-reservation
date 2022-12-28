@@ -1,0 +1,57 @@
+<div class="hotel-detail">
+  <div class="hotel-info">  
+    <% if @hotel.image.attached? %>
+      <%= link_to image_tag(@hotel.image, class: 'hotel-picture'), @hotel %>
+    <% else %>
+      <%= link_to image_tag('default_room_icon.jpg', class: 'hotel-picture'), @hotel %>
+    <% end %>
+    <div class="row" >
+      <% if @hotel.user.image.attached? %>
+        <%= image_tag @hotel.user.image, class: 'owner-icon' %>
+      <% else %>
+        <%= image_tag 'default_user_icon.jpg', class: 'owner-icon' %>
+      <% end %>
+      <div>
+        <p><%= @hotel.name %></p>
+        <p><%= @hotel.address %></p>
+      </div>
+    </div>
+    <p class="comment" ><%= @hotel.comment %></p>
+  </div>
+  <div class="reservation-form">
+    <%= form_with model: @reservation,url: new_reservation_path, method: :get do |f| %>
+      <h5><%= "¥ #{@hotel.price} / 日" %></h5>
+      <table>
+        <tr>
+          <th>
+            <%= f.label :start, "開始日" %>
+            <small>必須</small>
+          </th>
+          <td>
+            <%= f.date_field :start, required: true, class: 'input-area' %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <%= f.label :end, "終了日" %>
+            <small>必須</small>
+          </th>
+          <td>
+            <%= f.date_field :end, required: true, class: 'input-area' %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <%= f.label :number_of_people, "人数" %>
+            <small>必須</small>
+          </th>
+          <td>
+            <%= f.number_field :number_of_people, in: 1..10, required: true, class: 'input-area' %>
+          </td>
+        </tr>
+      <%= f.hidden_field :hotel_id, value: @hotel.id %>
+      </table>
+      <%= f.submit "予約する", class: 'reserve-button' %>
+    <% end %>
+  </div>
+</div>

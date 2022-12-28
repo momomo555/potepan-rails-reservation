@@ -1,0 +1,34 @@
+<h4>予約済みホテル一覧</h4>
+<table class="hotels-table">
+  <thead>
+    <tr>
+      <th>ホテル画像</th>
+      <th>ホテル名</th>
+      <th>ホテル紹介</th>
+      <th>合計料金</th>
+      <th>開始日</th>
+      <th>終了日</th>
+      <th>予約確定日時</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td>
+          <% if reservation.hotel.image.attached? %>
+            <%= link_to image_tag(reservation.hotel.image, class: 'hotel-picture'), reservation.hotel %>
+          <% else %>
+            <%= link_to image_tag('default_room_icon.jpg', class: 'hotel-picture'), reservation.hotel %>
+          <% end %>
+        </td>
+        <td><%= link_to reservation.hotel.name, reservation.hotel %></td>
+        <td><%= reservation.hotel.comment %></td>
+        <td><%= "¥#{reservation.price}" %></td>
+        <td><%= reservation.start %></td>
+        <td><%= reservation.end %></td>
+        <td><%= reservation.created_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
